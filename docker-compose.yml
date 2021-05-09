@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+
+    producer:
+      build: 
+        context: ./producer 
+        dockerfile: Dockerfile
+      depends_on:
+        redis:
+          condition: service_healthy
+      networks:
+        - pandas-dashboard-network
+
+    dashboard:
+      build:
+        context: ./dashboard
+        dockerfile: Dockerfile
+      ports:
+        - 5000:5000
+      restart: always
+      depends_on:
+        redis:
+          condition: service_healthy
+      networks:
+        - pandas-dashboard-network
+      
+    redis:
+      image: redis:6.2.3
+      command: redis-server --requirepass demo
+      ports:
+        - 6379:6379
+      healthcheck:
+        test: ["CMD", "redis-cli", "ping"]
+        interval: 5s
+        timeout: 30s
+        retries: 50
+      restart: always
+      networks:
+        - pandas-dashboard-network
+        # A neat way to get a static ip address if needed.
+        # pandas-dashboard-network:
+        #   ipv4_address: 172.28.1.4
+  
+# networking for the Redis container
+networks:
+  pandas-dashboard-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16

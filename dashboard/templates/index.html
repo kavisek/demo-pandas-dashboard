@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+    <meta charset="UTF-8">
+    <title>Pandas Dashboard</title>
+</head>
+<body>
+<p> These number will refresh randomly after 30 seconds.</p>
+{% for table in tables %}
+            {{ table|safe }}
+{% endfor %}
+</body>
+</html>

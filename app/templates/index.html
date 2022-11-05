@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/css/tailwind.css" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Pandas Dashboard</title>
 </head>
 <body>
-<p> These number will refresh randomly after 30 seconds.</p>
-    {{ data|safe }}
+    <div class='flex flex-col h-screen justify-center items-center'>
+        <h1 class="font-bold">Pandas Dashboard</h1>
+        <p class="font-light">
+            These number will refresh randomly after 30 seconds.
+        </p>
+        <br />
+        {{ data|safe }}
+    </div>
+
 </body>
 </html>

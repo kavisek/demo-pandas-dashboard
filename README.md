@@ -25,4 +25,4 @@ If you want to run fastapi locally. The uvicorn command in the .app/Makefile is 
 
 ### Architecture
 
-![](app/output/architecture.png)
+![](app/output/architecture2.png)

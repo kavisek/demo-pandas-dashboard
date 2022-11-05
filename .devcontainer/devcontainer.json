@@ -1,8 +1,0 @@
-{
-    "name": "Dev Container - Pandas Dashboard",
-    "build":{
-        "dockerfile": "../producer/Dockerfile",
-        "context": "../producer"
-    },
-    // "runArgs": ["--network=pandas-dashboard_pandas-dashboard-network"]
-}

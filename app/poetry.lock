@@ -72,6 +72,18 @@ wrapt = ">=1.10,<2"
 dev = ["PyTest", "PyTest (<5)", "PyTest-Cov", "PyTest-Cov (<2.6)", "bump2version (<1)", "configparser (<5)", "importlib-metadata (<3)", "importlib-resources (<4)", "sphinx (<2)", "sphinxcontrib-websupport (<2)", "tox", "zipp (<2)"]
 
 [[package]]
+name = "diagrams"
+version = "0.22.0"
+description = "Diagram as Code"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+graphviz = ">=0.13.2,<0.20.0"
+jinja2 = ">=2.10,<4.0"
+
+[[package]]
 name = "fastapi"
 version = "0.86.0"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -106,6 +118,19 @@ Werkzeug = ">=2.2.2"
 [package.extras]
 async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
+
+[[package]]
+name = "graphviz"
+version = "0.19.2"
+description = "Simple Python interface for Graphviz"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+dev = ["flake8", "pep8-naming", "tox (>=3)", "twine", "wheel"]
+docs = ["sphinx (>=1.8)", "sphinx-autodoc-typehints", "sphinx-rtd-theme"]
+test = ["coverage", "mock (>=4)", "pytest (>=6)", "pytest-cov", "pytest-mock (>=3)"]
 
 [[package]]
 name = "greenlet"
@@ -388,7 +413,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f634f2f13a1502450bb60c2c6d63dc6af2c372185ea75dc76bab2f910f317345"
+content-hash = "409749cf3088f3d1fb06ba07e9c446222a6baef62c82459675d15e3a3b9995b1"
 
 [metadata.files]
 alembic = [
@@ -415,6 +440,10 @@ Deprecated = [
     {file = "Deprecated-1.2.13-py2.py3-none-any.whl", hash = "sha256:64756e3e14c8c5eea9795d93c524551432a0be75629f8f29e67ab8caf076c76d"},
     {file = "Deprecated-1.2.13.tar.gz", hash = "sha256:43ac5335da90c31c24ba028af536a91d41d53f9e6901ddb021bcc572ce44e38d"},
 ]
+diagrams = [
+    {file = "diagrams-0.22.0-py3-none-any.whl", hash = "sha256:b61bac4a0afe6072d37ee21a08d46868fc9a251878035adf9097a4842bc86472"},
+    {file = "diagrams-0.22.0.tar.gz", hash = "sha256:39c183fab1705d4eae1213131d8eba377a55519e11b37d4c7dbe528aa447bcb5"},
+]
 fastapi = [
     {file = "fastapi-0.86.0-py3-none-any.whl", hash = "sha256:1020d7ca205d8b95813881fb3282e9c3656e47993531af3aa4ae11065b61dd2c"},
     {file = "fastapi-0.86.0.tar.gz", hash = "sha256:cdcaff84ecf7ae939b9579f0c98b0a0989ee3dd855710a32bc985260d92612f6"},
@@ -422,6 +451,10 @@ fastapi = [
 Flask = [
     {file = "Flask-2.2.2-py3-none-any.whl", hash = "sha256:b9c46cc36662a7949f34b52d8ec7bb59c0d74ba08ba6cb9ce9adc1d8676d9526"},
     {file = "Flask-2.2.2.tar.gz", hash = "sha256:642c450d19c4ad482f96729bd2a8f6d32554aa1e231f4f6b4e7e5264b16cca2b"},
+]
+graphviz = [
+    {file = "graphviz-0.19.2-py3-none-any.whl", hash = "sha256:c0a6ac9fadaa308c4ab0d526749c6e127425ec5a76644bbb03e2e04b19a9da9f"},
+    {file = "graphviz-0.19.2.zip", hash = "sha256:7c90cebc147c18bcdffcd3c76db58cbface5d45fe0247a2f3bfb144d32a8c77c"},
 ]
 greenlet = [
     {file = "greenlet-2.0.0.post0-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:b75e5644cc353328cd57ec8dafaaf5f81b2c3ecf7c4b278b907e99ad53ba7839"},

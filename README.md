@@ -21,3 +21,8 @@ After running docker compose you should be able to access the application at htt
 If you want to run fastapi locally. The uvicorn command in the .app/Makefile is set to use localhost:8080/
 
 ![](images/dashboard.png)
+
+
+### Architecture
+
+![](app/output/architecture.png)

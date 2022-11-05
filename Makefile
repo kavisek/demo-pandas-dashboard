@@ -1,5 +1,21 @@
+# Docker Compose Commands
 
+.PHONY: status watch shutdown shutdown_volumes startup
 
-startup:
+status:
+	docker compose ls
+	docker container ls
+	docker volume ls
+	docker network ls
+
+watch:
+	watch -n 5 make status 
+
+shutdown:
 	docker-compose down
-	docker-compose up
+
+shutdown_volumes:
+	docker-compose down -v
+
+startup: shutdown
+	docker compose up

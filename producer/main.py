@@ -10,7 +10,7 @@ class ProducerPipeline:
         """Initialize a redis database connection."""
         # The redis host, port, and password are specified in the docker compose folder.
         self.r = redis.Redis(
-            host="pandas-dashboard_redis_1", port="6379", password="demo"
+            host="redis", port="6379", password="docker"
         )
 
     def run(self) -> None:

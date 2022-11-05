@@ -6,18 +6,26 @@ services:
       build: 
         context: ./producer 
         dockerfile: Dockerfile
+      command: python3 main.py
+      environment:
+        REDIS_HOST: redis
+        REDIS_PORT: 6379
       depends_on:
         redis:
           condition: service_healthy
       networks:
         - pandas-dashboard-network
 
-    dashboard:
+    app:
       build:
-        context: ./dashboard
+        context: ./app
         dockerfile: Dockerfile
+      command: uvicorn --port 8000 --host 0.0.0.0 main:app --reload
+      environment:
+        REDIS_HOST: redis
+        REDIS_PORT: 6379
       ports:
-        - 5000:5000
+        - 8000:8000
       restart: always
       depends_on:
         redis:
@@ -26,8 +34,9 @@ services:
         - pandas-dashboard-network
       
     redis:
+      container_name: redis
       image: redis:6.2.3
-      command: redis-server --requirepass demo
+      command: redis-server --requirepass docker
       ports:
         - 6379:6379
       healthcheck:
